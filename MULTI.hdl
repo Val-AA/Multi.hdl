@@ -1,0 +1,15 @@
+CHIP MULTI {
+	IN a, b, sel;
+	OUT out;
+
+	PARTS:
+	//a AND NOTsel  OR  b AND sel
+	
+	NOT(a=sel, out=nsel);
+	AND(a=a, b=nsel, out=f1);
+
+	AND(a=b, b=sel, out=f2);
+
+	OR(a=f1, b=f2, out=out);
+	
+}
